@@ -21,7 +21,7 @@ from agent import run, to_markdown
 from demo import SECTIONS
 from prompts import SYSTEM_PROMPT
 
-st.set_page_config(page_title="Weekly Status Report Agent", page_icon="📊", layout="wide")
+st.set_page_config(page_title="SAP Payroll Weekly Status Report Agent", page_icon="📊", layout="wide")
 
 
 def setting(name: str, default: str = "") -> str:
@@ -65,9 +65,9 @@ st.markdown(
 )
 
 st.markdown(
-    '<div class="hero"><h1>📊 Weekly Status Report Agent</h1>'
-    "<p>Paste a week of rough team notes. Get a one-minute status report, a risk and blocker register, "
-    "and the questions to ask your team. The agent checks its own work before it answers.</p></div>",
+    '<div class="hero"><h1>📊 SAP Payroll Weekly Status Report Agent</h1>'
+    "<p>Paste a week of rough SAP Payroll team notes. Get a clean weekly status report, risk and blocker register, "
+    "and follow-up questions for your team. Uses made-up sample data only (no live connection to SAP, Jira, or email).</p></div>",
     unsafe_allow_html=True,
 )
 
@@ -76,7 +76,11 @@ if API_KEY:
 else:
     st.info("Demo mode: no AI key added yet, so the agent uses simple rules. Add your key to use a real model (see the README).")
 
-SAMPLES = {"Banking portal (sample_updates.txt)": "sample_updates.txt",
+st.warning("AI-generated report: Verify all payroll figures, employee details, tax information and project statuses before making decisions.")
+
+SAMPLES = {"SAP US Payroll (sample_updates.txt)": "sample_updates.txt",
+           "SF EC -> ECP Replication (Red)": "samples/sf_ec_payroll_replication.txt",
+           "SAP HCM OM/PA & SF Sync (Green)": "samples/sap_hcm_om_pa_green.txt",
            "Cloud migration": "samples/cloud_migration.txt",
            "Telecom billing": "samples/telecom_billing.txt"}
 
@@ -102,7 +106,7 @@ with left:
     if up is not None and st.session_state.get("_uploaded") != up.name:
         st.session_state.updates = up.read().decode("utf-8", errors="ignore")
         st.session_state._uploaded = up.name
-    updates = st.text_area("Your team's notes for the week", key="updates", height=330,
+    updates = st.text_area("Your SAP Payroll team's rough notes for the week", key="updates", height=330,
                            placeholder="Paste stand-up notes, Jira lines or emails, one per line...")
     go = st.button("Write my report", type="primary", use_container_width=True)
 
@@ -115,7 +119,9 @@ with right:
                 try:
                     result, steps = run(updates, SYSTEM_PROMPT, API_KEY, BASE_URL, MODEL)
                 except Exception as err:  # a wrong key, no credit, no network: say it in plain words
-                    st.error(f"The AI model could not answer. Check your key and model name, then try again. Details: {err}")
+                    resp = getattr(err, "response", None)
+                    detail = f"{err} | Response: {resp.text}" if (resp is not None and getattr(resp, "text", "")) else str(err)
+                    st.error(f"The AI model could not answer. Check your key and model name, then try again. Details: {detail}")
                     st.stop()
             st.session_state.result, st.session_state.steps = result, steps
 
@@ -186,4 +192,4 @@ with right:
         st.download_button("Download the report", to_markdown(result), file_name="weekly-status-report.md", use_container_width=True)
         st.caption("Check the report before you send it. The agent only uses what is in the notes.")
 
-st.markdown('<div class="footer">Built at Zero to Live AI Agent on Cloud, Future Proof India.</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Built by Vamshee Krishna at Zero to Live, Future Proof India</div>', unsafe_allow_html=True)

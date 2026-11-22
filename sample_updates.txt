@@ -1,10 +1,9 @@
-Mon: Priya finished the login screen for the customer portal (PORTAL-142), testing started
-Mon: Arjun spent two hours helping the support team with a billing question from Acme Bank
-Tue: released version 2.3 to the test environment, 41 of 43 regression tests passed
-Tue: waiting on approval from the security team before we can go live, Meera to follow up
-Wed: the vendor may slip the payment gateway delivery by a week, could affect the 15 Dec launch
-Wed: client call with Acme Bank went well, they praised the new dashboard
-Thu: Ravi stuck on a database timeout in PORTAL-150, cannot reproduce it on his machine
-Thu: fixed three small bugs reported by the testers (PORTAL-138, 139, 141)
-Fri: next week we start the reports module and prepare the client demo for Thursday
-Fri: no access to the production logs yet, request raised with IT
+Mon: Ananya completed configuration of customer schema YUS0 and overtime PCR YUPA (PAY-214), unit testing passed
+Mon: Vikram updated wage type processing class 97 for union deductions (PAY-219) and transported to QA
+Tue: Executed 18 of 24 planned SIT Cycle 2 payroll scripts in RPCALCU0; 15 passed and 3 failed
+Tue: Waiting on client Tax Manager sign-off on updated 401(k) catch-up limits in table T511K before UAT can start
+Wed: Defect PAY-231 (High) - BSI TaxFactory returning incorrect local tax withholding for PA remote employees, Basis investigating RFC timeout
+Wed: Off-cycle bonus run test (reason 0001) and DME bank transfer file (RFFOUS_T) validated with fictional test bank
+Thu: Defect PAY-235 - retroactive salary change across quarter-end triggers wrong /551 difference in CRT (owner not assigned yet)
+Thu: Vendor tax update delivery may slip by 4 days, could threaten the 12 Dec UAT entry milestone
+Fri: Payroll Manager demo went well; team will retest PAY-231 and finalize remaining 6 SIT scripts next week

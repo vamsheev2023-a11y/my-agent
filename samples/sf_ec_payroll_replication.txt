@@ -1,0 +1,6 @@
+Mon: Critical blocker SF-402 - BIB replication from SuccessFactors Employee Central to SAP ECP failed for 42 rehired employees with PAOCF_EC_DECIDE mapping error
+Mon: Payroll parallel run for US Biweekly area UB halted because cost center assignments did not replicate from EC
+Tue: Security and Basis sign-off on CPI certificate renewal is overdue; production cutover on 18 Dec is blocked until resolved
+Wed: Priya fixed infotype 0009 bank detail replication rule (SF-398) in QA
+Thu: Defect SF-410 - time off absence quota sync from EC Time Off to IT2006 showing negative balance for 5 test users (no owner assigned yet)
+Fri: Cutover readiness call escalated SF-402 and CPI certificate delay to Steering Committee

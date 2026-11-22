@@ -1,0 +1,9 @@
+Mon: Ananya completed configuration of customer schema YUS0 and overtime PCR YUPA (PAY-214), unit testing passed
+Mon: Vikram updated wage type processing class 97 for union deductions (PAY-219) and transported to QA
+Tue: Executed 18 of 24 planned SIT Cycle 2 payroll scripts in RPCALCU0; 15 passed and 3 failed
+Tue: Waiting on client Tax Manager sign-off on updated 401(k) catch-up limits in table T511K before UAT can start
+Wed: Defect PAY-231 (High) - BSI TaxFactory returning incorrect local tax withholding for PA remote employees, Basis investigating RFC timeout
+Wed: Off-cycle bonus run test (reason 0001) and DME bank transfer file (RFFOUS_T) validated with fictional test bank
+Thu: Defect PAY-235 - retroactive salary change across quarter-end triggers wrong /551 difference in CRT (owner not assigned yet)
+Thu: Vendor tax update delivery may slip by 4 days, could threaten the 12 Dec UAT entry milestone
+Fri: Payroll Manager demo went well; team will retest PAY-231 and finalize remaining 6 SIT scripts next week
